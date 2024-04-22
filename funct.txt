@@ -1,0 +1,9 @@
+1. map rendering
+2. showing disease statistics (district with highest recorded cases :
+                                    district with lowest recorded cases :
+                                    average number of cases per district :
+                                    Main caouse :
+                                    Number of recoveries :
+                                    Number of people died :
+                                    Recommendation :)
+3. showing the list of diseases

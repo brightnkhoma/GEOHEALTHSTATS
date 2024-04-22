@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    
+  
+    <title>Document</title>
+</head>
+<body>
+    <div id="main">
+        <div id="nav">
+            <span id="logo">GEOHEALTHSTATS</span>
+            <a href="signin.html">sign in</a>
+        </div>
+        <div id="content">
+            <div id="side">
+                    <span class="sid">
+                        malaria,
+                    </span>
+                    <span class="sid">
+                        cholera
+                    </span>
+                    <span class="sid">
+
+                        tuberculosis
+                    </span>
+                    <span class="sid">
+
+                        high blood pressure
+                    </span>
+                    <span class="sid">
+
+                        asthma
+                    </span>
+                    <span class="sid">
+
+                        diabetis
+                    </span>
+                    <span class="sid">
+
+                        pnumonia
+                    </span>
+            </div>
+            <div id="map"></div>
+        </div>
+        <div id="footer"> 
+            <div id="stats">
+                <span>district with highest recorded cases :</span>
+                <span>district with lowest recorded cases :</span>
+                <span>average number of cases per district :</span>
+            </div>
+            <div id="disc">
+                <span>Main caouse       :</span>
+                <span>Number of recoveries    :</span>
+                <span>Number of people died    :</span>
+                <span>Recommendation   :</span>
+            </div>
+        </div>
+    </div>
+    <script>
+       var map = L.map('map').setView([-16.066820, 35.143291], 13);
+       L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+    </script>
+    <script src="myscript.js">
+        
+    </script>
+</body>
+</html>

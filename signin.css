@@ -1,0 +1,55 @@
+#main{
+    height: 100vh;
+    background-image: url(bg.webp);
+    background-size: cover;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#container{
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: max-content;
+    gap:calc(100px);
+    border: 2px solid black;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    background-color: black;
+    opacity: .8;
+    
+}
+#welcome{
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    font-weight: 900;
+    font-size: xx-large;
+    
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap:calc(20px)
+}
+.x{
+    width: 18rem;
+    border-radius: 5px;
+    padding: 5px;
+
+}
+#button{
+    font-size: medium;
+    font-weight: 800;
+}
+#tx{
+    color: wheat;
+}
