@@ -1,15 +1,15 @@
 import mongoose from "mongoose";
 
 
-const DiseaseSchema = new mongoose.Schema({
-    _id : {type: mongoose.Schema.Types.ObjectId},
+const DiseaseSchema = new mongoose.Schema({    
     name : String,
     location : {type:mongoose.Schema.Types.ObjectId, ref:"districts"},
     count : String,
     causes : String,
     numberOfRecoveries: String,
     numberOfDeaths: String,
-    recommendation : String
+    recommendation : String,
+    author : {type:mongoose.Schema.Types.ObjectId,ref:"User"}
 
 
 },{timestamps:true})
@@ -30,3 +30,5 @@ const userSchema = new mongoose.Schema({
 const user = mongoose.model("User", userSchema)
 const disease = mongoose.model("Disease",DiseaseSchema)
 const district = mongoose.model("Disease",districtSchema)
+
+export {user,disease,district}
