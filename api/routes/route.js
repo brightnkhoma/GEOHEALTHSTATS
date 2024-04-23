@@ -5,7 +5,7 @@ const router = express.Router()
 
 router.post('/adduser',addUser);
 router.post('/adddisease',addDisease)
-router.post('adddistrict',addDistrict)
+router.post('/adddistrict',addDistrict)
 router.get('/getdisease',getDiseaase)
 
 export default router;

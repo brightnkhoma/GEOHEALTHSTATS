@@ -16,7 +16,7 @@ const DiseaseSchema = new mongoose.Schema({
 
 const districtSchema = new mongoose.Schema({
     _id:{type:mongoose.Schema.Types.ObjectId},
-    name: String,
+    name: {type:String,unique:true},
     location: String
 },)
 
