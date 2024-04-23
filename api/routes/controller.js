@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import bcrypt from 'bcrypt'
 import { errorHandler } from '../error/error.js'
-import {disease,district,user} from '../model/model.js'
+import {disease,district,user,hospital} from '../model/model.js'
 
 
 
@@ -9,8 +9,11 @@ export const addDistrict = async(req,res,next)=>{
     try {
         
         const {name,location} = req.body;
+        const exists = await district.findOne({name});
+        if(exists) return next(errorHandler(400,`district ${name} already exists`))
         const dis = new district({_id:new mongoose.Types.ObjectId,name,location})
         await dis.save()
+
         res.status(200).json(`district ${name} added successifully!`)
 
     } catch (error) {
@@ -40,6 +43,8 @@ export const addUser = async(req,res,next)=>{
     try {
         
         const {email,image,name,passord} = req.body;
+        const _user = await user.findOne({email})
+        if(_user) return next(errorHandler(500,`user already exists!!1`))
         const encryptedPassword = bcrypt.hashSync(passord,10)
         const admin = new user({image,name,email,password:encryptedPassword})
         await admin.save();
@@ -61,6 +66,18 @@ export const getDiseaase = async(req,res,next)=>{
     } catch (error) {
         next(500,errorHandler(500,error.message))
 
+    }
+}
+
+export const addHospital = async(req,res,next)=>{
+    try {
+        
+        const {name,location,district} = req.body;
+        const hospitalDistrict = await district.findOne({name:district})
+        if(!district) return next(errorHandler(500,`districts ${district} does not exist or try to spell it correctly and capitalise the first character`))
+        const hosp = new hospital({_id:new mongoose.Types.ObjectId,name,district:hospitalDistrict._id,location})
+    } catch (error) {
+        next(errorHandler(500,error.message))
     }
 }
 

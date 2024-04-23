@@ -9,7 +9,10 @@ const DiseaseSchema = new mongoose.Schema({
     numberOfRecoveries: String,
     numberOfDeaths: String,
     recommendation : String,
-    author : {type:mongoose.Schema.Types.ObjectId,ref:"User"}
+    author : {type:mongoose.Schema.Types.ObjectId,ref:"User"},
+    hospital: {
+        type: mongoose.Schema.Types.ObjectId, ref:"Hospital"
+    }
 
 
 },{timestamps:true})
@@ -27,8 +30,22 @@ const userSchema = new mongoose.Schema({
     image : String,
 })
 
+const hospitalSchema = new mongoose.Schema({
+    _id:{type:mongoose.Schema.Types.ObjectId},
+    name : {
+        type: String,
+        unique : true
+    },
+    location : String,
+    district: {
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Districts"
+    }
+})
+
 const user = mongoose.model("User", userSchema)
 const disease = mongoose.model("Disease",DiseaseSchema)
 const district = mongoose.model("Districts",districtSchema)
+const hospital = mongoose.model("Hospital",hospitalSchema)
 
-export {user,disease,district}
+export {user,disease,district,hospital}
