@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import mongoose from 'mongoose';
-import router from './routes/route';
+import router from './routes/route.js';
 
 const app = express();
 app.use(cors())

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 import bcrypt from 'bcrypt'
-import { errorHandler } from '../error/error'
+import { errorHandler } from '../error/error.js'
 import {disease,district,user} from '../model/model.js'
 
 

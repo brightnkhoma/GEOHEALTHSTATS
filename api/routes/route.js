@@ -1,5 +1,5 @@
 import express from 'express'
-import {addDisease,addDistrict,addUser,getDiseaase} from './controller'
+import {addDisease,addDistrict,addUser,getDiseaase} from './controller.js'
 
 const router = express.Router()
 

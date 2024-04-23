@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 const DiseaseSchema = new mongoose.Schema({    
     name : String,
-    location : {type:mongoose.Schema.Types.ObjectId, ref:"districts"},
+    location : {type:mongoose.Schema.Types.ObjectId, ref:"Districts"},
     count : String,
     causes : String,
     numberOfRecoveries: String,
@@ -29,6 +29,6 @@ const userSchema = new mongoose.Schema({
 
 const user = mongoose.model("User", userSchema)
 const disease = mongoose.model("Disease",DiseaseSchema)
-const district = mongoose.model("Disease",districtSchema)
+const district = mongoose.model("Districts",districtSchema)
 
 export {user,disease,district}
