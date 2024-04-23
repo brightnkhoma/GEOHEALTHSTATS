@@ -11,7 +11,7 @@ export const addDistrict = async(req,res,next)=>{
         const {name,location} = req.body;
         const dis = new district({_id:new mongoose.Types.ObjectId,name,location})
         await dis.save()
-        res.status(400).json(`district ${name} added successifully!`)
+        res.status(200).json(`district ${name} added successifully!`)
 
     } catch (error) {
         next(errorHandler(500,error.message))
@@ -43,7 +43,8 @@ export const addUser = async(req,res,next)=>{
         const encryptedPassword = bcrypt.hashSync(passord,10)
         const admin = new user({image,name,email,password:encryptedPassword})
         await admin.save();
-        res.status(400).json(`welcome ${name} to geohealthstats!!!!`)
+        code = 200
+        res.status(code).json(`welcome ${name} to geohealthstats!!!!`)
     } catch (error) {
         next(errorHandler(500,error.message))
     }
@@ -55,9 +56,11 @@ export const getDiseaase = async(req,res,next)=>{
         const {name} = req.body
         const data = await disease.find({name}).populate(['location','author'])
         if(!data) return next(errorHandler(500).json(`disease ${name} in not recorded in our database`))
-        res.status(400).json(data)
+        res.status(200).json(data)
+
     } catch (error) {
         next(500,errorHandler(500,error.message))
+
     }
 }
 
